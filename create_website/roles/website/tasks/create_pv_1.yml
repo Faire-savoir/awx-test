@@ -1,0 +1,18 @@
+- name: Create a k8s configmap for nginx
+  k8s:
+    kubeconfig: /root/.kube/config
+    state: present
+    definition:
+      apiVersion: v1
+      kind: PersistentVolume
+      metadata:
+        name: "{{ client }}-nfs"
+      spec:
+        capacity:
+          storage: 10Mi
+        accessModes:
+          - ReadWriteMany
+        nfs:
+          server: "{{ server_nfs }}"
+          path: "{{ share_nfs }}"
+
