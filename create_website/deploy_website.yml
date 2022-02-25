@@ -4,8 +4,8 @@
   gather_facts: false
   become: yes
   vars:
-    - server_nfs: 10.255.255.202
-    - share_nfs: /k8s
+    - server_nfs: frhbnas10.fsavoir.lille
+    - share_nfs: /Volume2/GSW
 
   collections:
     - kubernetes.core
