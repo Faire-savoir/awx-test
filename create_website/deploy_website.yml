@@ -24,13 +24,13 @@
 #      mode: '0755'
 #  - name: Execute script to generate certificat.
 #    shell: /tmp/{{ client }}/generate_certificat.sh
- - name: Create a directory www if it does not exist
-   file:
-     path: /data/{{ client }}/www
-     recurse: yes
-     state: directory
-     mode: '0755'
-   delegate_to: "{{ ansible_host }}"
+- name: Create a directory www if it does not exist
+  file:
+    path: /data/{{ client }}/www
+    recurse: yes
+    state: directory
+    mode: '0755'
+  delegate_to: "{{ ansible_host }}"
 #  - name: Add directory to exports file
 #    lineinfile:
 #      path: /etc/exports
