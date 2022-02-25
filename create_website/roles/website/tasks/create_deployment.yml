@@ -63,7 +63,7 @@
             #  - name: html-volume
             #    mountPath: /usr/share/nginx/html
             #  - mountPath: "/data/files"
-              - mountPath: "/usr/share/nginx/html/{{ client }}/www"
+              - mountPath: "/usr/share/nginx/html/"
                 name: www-storage
             volumes:
             #- name: html-volume
