@@ -5,7 +5,7 @@
   become: yes
   vars:
     - server_nfs: frhbnas10.fsavoir.lille
-    - share_nfs: /Volume2/GSW
+    - share_nfs: /volume2/GSW
 
   collections:
     - kubernetes.core
