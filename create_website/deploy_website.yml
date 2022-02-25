@@ -30,7 +30,7 @@
       recurse: yes
       state: directory
       mode: '0755'
-    delegate_to: "{{ ansible_host }}"
+    delegate_to: "{{ ansible_hostname }}"
 #  - name: Add directory to exports file
 #    lineinfile:
 #      path: /etc/exports
