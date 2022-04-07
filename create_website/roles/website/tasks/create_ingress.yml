@@ -13,10 +13,10 @@
           nginx.ingress.kubernetes.io/ssl-redirect: "false"
       spec:
       #  tls:
-      #  - hosts: [ "{{ client }}-website.domain.local" ]
+      #  - hosts: [ "{{ client }}.gsw.fsavoir.lille" ]
       #    secretName: "{{ client }}-tls-credential"
         rules:
-        - host: "{{ client }}-website.domain.local"
+        - host: "{{ client }}.gsw.fsavoir.lille"
           http:
             paths:
             - pathType: Prefix #Exact
