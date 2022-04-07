@@ -27,7 +27,7 @@
                   server_name _;
                   root        /usr/share/nginx/html/{{ client }}/www;
                   location / {
-                      index index.php index.html
+                      try_files $uri /index.php
                   }
                   location ~ ^/index\.php(/|$) {
                       fastcgi_pass 127.0.0.1:9000;
