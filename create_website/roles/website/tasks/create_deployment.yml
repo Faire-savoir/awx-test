@@ -34,7 +34,6 @@
                       - "{{ client }}"
                   topologyKey: "kubernetes.io/hostname"
             containers:
-            containers:
             - name: "{{ client }}-php"
               image: php:7-fpm
               ports:
