@@ -56,9 +56,9 @@
               ports:
               - containerPort: 80
               volumeMounts:
-              # - name: nginx-config-volume
-              #   mountPath: /etc/nginx/nginx.conf
-              #   subPath: nginx.conf
+              - name: nginx-config-volume
+                mountPath: /etc/nginx/nginx.conf
+                subPath: nginx.conf
             #  - name: html-volume
             #    mountPath: /usr/share/nginx/html
             #  - mountPath: "/data/files"
