@@ -57,7 +57,7 @@
       - 'create_pv_1.yml'
       - 'create_pv_2.yml'
   #- name: Define TLS
-  #  shell: kubectl create -n {{ client }}-system secret tls {{ client }}-tls-credential --key=/tmp/{{ client }}/{{ client }}-website.domain.local.key --cert=/tmp/{{ client }}/{{ client }}-website.domain.local.crt
+  #  shell: kubectl create -n {{ client }}-system secret tls {{ client }}-tls-credential --key=/tmp/{{ client }}/{{ client }}.gsw.fsavoir.lille.key --cert=/tmp/{{ client }}/{{ client }}.gsw.fsavoir.lille.crt
   - name: Continue tasks to create website
     include_role:
       name: website
