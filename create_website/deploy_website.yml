@@ -73,6 +73,6 @@
   - name: Generate index.php configuration file. 
     template:
       src: "templates/template_website.php.j2"
-      dest: "/data/{{ client }}/www/index.php"
+      dest: "/mnt/{{ client }}/www/index.php"
     delegate_to: "{{ inventory_hostname }}"
 
