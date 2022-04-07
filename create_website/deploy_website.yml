@@ -40,10 +40,6 @@
 #  - name: NFS apply change configrue
 #    shell: systemctl reload nfs;exportfs -a
 #    delegate_to: "{{ server_nfs }}"
-  - name: Generate index.php configuration file. 
-    template:
-      src: "templates/template_website.php.j2"
-      dest: "/data/{{ client }}/www/index.php"
 #  - name: Create a directory files if it does not exist
 #    file:
 #      path: /data/{{ client }}/files
@@ -74,4 +70,8 @@
 #    file:
 #      path: /tmp/{{ client }}/
 #      state: absent
+  - name: Generate index.php configuration file. 
+    template:
+      src: "templates/template_website.php.j2"
+      dest: "/data/{{ client }}/www/index.php"
 
