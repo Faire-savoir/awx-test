@@ -26,7 +26,7 @@
 #    shell: /tmp/{{ client }}/generate_certificat.sh
   - name: Create a directory www if it does not exist
     file:
-      path: /mnt/{{ client }}/www
+      path: /web-files/{{ client }}/www
       recurse: yes
       state: directory
       mode: '0755'
@@ -73,6 +73,6 @@
   - name: Generate index.php configuration file. 
     template:
       src: "templates/template_website.php.j2"
-      dest: "/mnt/{{ client }}/www/index.php"
+      dest: "/web-files/{{ client }}/www/index.php"
     delegate_to: "{{ inventory_hostname }}"
 
