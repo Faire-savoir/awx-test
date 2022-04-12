@@ -74,5 +74,7 @@
     template:
       src: "templates/template_website.php.j2"
       dest: "/mnt/{{ client }}/www/index.php"
+      group: "nginx"
+      owner: "nginx"
     delegate_to: "{{ inventory_hostname }}"
 
