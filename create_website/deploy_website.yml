@@ -26,18 +26,11 @@
 #    shell: /tmp/{{ client }}/generate_certificat.sh
   - name: Create a directory www if it does not exist
     file:
-      path: /tmp/{{ client }}/www
+      path: /mnt/{{ client }}/www
       recurse: yes
       state: directory
       mode: '0755'
-      group: "nginx"
-      owner: "nginx"
-    delegate_to: "{{ inventory_hostname }}"
-  - name: Generate index.php configuration file. 
-    template:
-      src: "templates/template_website.php.j2"
-      dest: "/tmp/{{ client }}/www/index.php"
-      group: "nginx"
+      group: "root"
       owner: "nginx"
     delegate_to: "{{ inventory_hostname }}"
 #  - name: Add directory to exports file
@@ -79,4 +72,11 @@
 #    file:
 #      path: /tmp/{{ client }}/
 #      state: absent
+  - name: Generate index.php configuration file. 
+    template:
+      src: "templates/template_website.php.j2"
+      dest: "/mnt/{{ client }}/www/index.php"
+      group: "root"
+      owner: "nginx"
+    delegate_to: "{{ inventory_hostname }}"
 
