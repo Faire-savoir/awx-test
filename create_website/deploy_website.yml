@@ -30,11 +30,14 @@
       recurse: yes
       state: directory
       mode: '0755'
+      group: "nginx"
+      owner: "nginx"
     delegate_to: "{{ inventory_hostname }}"
   - name: Generate index.php configuration file. 
     template:
       src: "templates/template_website.php.j2"
       dest: "/mnt/{{ client }}/www/index.php"
+      group: "nginx"
       owner: "nginx"
     delegate_to: "{{ inventory_hostname }}"
 #  - name: Add directory to exports file
