@@ -18,7 +18,7 @@
         rules:
       #  - host: "{{ client }}.gsw.fsavoir.lille"
          - host: "{{ client }}.gsw.faire-savoir.eu"
-          http:
+          - http:
             paths:
             - pathType: Prefix #Exact
               path: "/"
