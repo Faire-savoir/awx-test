@@ -24,12 +24,11 @@
               path: "/"
               backend:
                 service:
-                  name: "{{ client }}-service"
-                  port:
-                    number: 80
+                  - name: "{{ client }}-service"
+                    port:
+                      number: 80
                 # Ajout
-                service:
-                  name: "{{ client }}-service"
-                  port:
-                    number: 443
+                  - name: "{{ client }}-service"
+                    port:
+                      number: 443
 
