@@ -17,7 +17,7 @@
       #    secretName: "{{ client }}-tls-credential"
         rules:
       #  - host: "{{ client }}.gsw.fsavoir.lille"
-         - host: "{{ client }}.gsw.faire-savoir.eu"
+        - host: "{{ client }}.gsw.faire-savoir.eu"
           - http:
             paths:
             - pathType: Prefix #Exact
@@ -31,4 +31,3 @@
                   - name: "{{ client }}-service"
                     port:
                       number: 443
-
