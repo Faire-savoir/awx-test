@@ -34,9 +34,6 @@
                       - "{{ client }}"
                   topologyKey: "kubernetes.io/hostname"
             containers:
-              #volumeMounts:
-              #- mountPath: "/usr/share/nginx/html/"
-              #- name: www-storage
             - name: "{{ client }}-php"
               image: php:7-fpm
               ports:
@@ -78,4 +75,3 @@
               configMap:
                 name: "{{ client }}-nginx-config"
             restartPolicy: Always
-

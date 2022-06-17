@@ -16,7 +16,6 @@
       #  - hosts: [ "{{ client }}.gsw.fsavoir.lille" ]
       #    secretName: "{{ client }}-tls-credential"
         rules:
-      #  - host: "{{ client }}.gsw.fsavoir.lille"
         - host: "{{ client }}.gsw.faire-savoir.eu"
           http:
             paths:
@@ -24,10 +23,7 @@
               path: "/"
               backend:
                 service:
-                  - name: "{{ client }}-service"
-                    port:
-                      number: 80
-                # Ajout
-                #  - name: "{{ client }}-service"
-                #    port:
-                #      number: 443
+                  name: "{{ client }}-service"
+                  port:
+                    number: 80
+
