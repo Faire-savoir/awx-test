@@ -18,7 +18,7 @@
         rules:
       #  - host: "{{ client }}.gsw.fsavoir.lille"
         - host: "{{ client }}.gsw.faire-savoir.eu"
-          - http:
+        http:
             paths:
             - pathType: Prefix #Exact
               path: "/"
@@ -28,6 +28,6 @@
                     port:
                       number: 80
                 # Ajout
-                  - name: "{{ client }}-service"
-                    port:
-                      number: 443
+                #  - name: "{{ client }}-service"
+                #    port:
+                #      number: 443
