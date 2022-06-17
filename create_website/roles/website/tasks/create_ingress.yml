@@ -16,7 +16,7 @@
       #  - hosts: [ "{{ client }}.gsw.fsavoir.lille" ]
       #    secretName: "{{ client }}-tls-credential"
         rules:
-        - host: "{{ client }}.gsw.faire-savoir.eu"
+        - host: "{{ client }}.gsw.fsavoir.lille"
           http:
             paths:
             - pathType: Prefix #Exact

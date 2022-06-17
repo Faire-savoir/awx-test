@@ -54,7 +54,7 @@
             - name: "{{ client }}-nginx"
               image: nginx
               ports:
-                containerPort: 80
+              - containerPort: 80
               volumeMounts:
               - name: nginx-config-volume
                 mountPath: /etc/nginx/nginx.conf
@@ -75,3 +75,4 @@
               configMap:
                 name: "{{ client }}-nginx-config"
             restartPolicy: Always
+
