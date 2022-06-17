@@ -34,8 +34,8 @@
                       - "{{ client }}"
                   topologyKey: "kubernetes.io/hostname"
             containers:
-            - name: "{{ client }}-certbot"
-              image: certbot
+            #- name: "{{ client }}-certbot"
+            #  image: certbot
               volumeMounts:
               - mountPath: "/usr/share/nginx/html/"
               - name: www-storage
@@ -53,15 +53,15 @@
                 mountPath: /data/files
               readinessProbe:
                 tcpSocket:
-                  - port: http
-                  - port: https
+                  port: http
+                #  - port: https
                 initialDelaySeconds: 10
                 timeoutSeconds: 5
             - name: "{{ client }}-nginx"
               image: nginx
               ports:
-              - containerPort: 80
-              - containerPort: 443
+                containerPort: 80
+              #- containerPort: 443
               volumeMounts:
               - name: nginx-config-volume
                 mountPath: /etc/nginx/nginx.conf
