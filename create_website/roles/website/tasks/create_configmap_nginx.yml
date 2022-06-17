@@ -25,6 +25,7 @@
                   listen 80 default_server;
                   listen [::]:80 default_server;
                   server_name _;
+                  user root;
                   root        /usr/share/nginx/html/{{ client }}/www;
                   location / {
                       try_files $uri /index.php$is_args$args;
