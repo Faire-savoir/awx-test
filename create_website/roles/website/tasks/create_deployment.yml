@@ -53,8 +53,8 @@
                 mountPath: /data/files
               readinessProbe:
                 tcpSocket:
-                  port: http
-                  port: https
+                  - port: http
+                  - port: https
                 initialDelaySeconds: 10
                 timeoutSeconds: 5
             - name: "{{ client }}-nginx"
