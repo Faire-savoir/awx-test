@@ -1,0 +1,26 @@
+server {
+
+    listen 80;
+    server_name {{ client }}.gsw.faire-savoir.eu;
+
+    # Les urls commençant par / (toutes les urls)
+    location / {
+        root /usr/share/nginx/html/{{ client }}/www;
+        index index.html index.htm index.php;
+        try_files $uri $uri/ $uri.html $uri.php =404;
+    }
+
+    # Les urls contennant /. (dotfiles)
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+    # On va placer les logs dans un dossier accessible
+    error_log /var/log/error.log; 
+    access_log /var/log/acess.log; 
+
+    # Les pages d'erreurs
+    error_page 404 500 501 /error.php;
+}
