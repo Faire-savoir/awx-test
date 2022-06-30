@@ -64,6 +64,9 @@
             #  - mountPath: "/data/files"
               - mountPath: "/usr/share/nginx/html/"
                 name: www-storage
+              - name: nginx-vhost
+                mountPath: /etc/nginx/conf.d/
+                subPath: "{{ client }}.conf"
             volumes:
             #- name: html-volume
             #  configMap:
@@ -74,8 +77,7 @@
             - name: nginx-config-volume
               configMap:
                 name: "{{ client }}-nginx-config"
-            template:
-              src: templates/template_vhost.conf.j2
-              dest: /etc/nginx/conf.d/{{ client }}.conf
+            - name: nginx-vhost
+              configMap:
+                name: "{{ client }}-nginx-vhost"
             restartPolicy: Always
-
