@@ -9,7 +9,7 @@
         name: "{{ client }}-nginx-vhost"
         namespace: "{{ client }}-system"
       data:
-        nginx.conf: |
+        "{{ client }}.conf": |
           server {
                  listen 80;
                  server_name {{ client }}.gsw.faire-savoir.eu;
