@@ -75,7 +75,6 @@
               configMap:
                 name: "{{ client }}-nginx-config"
             name: create-vhost
-              become: true
               template:
                 src: templates/template_vhost.conf.j2
                 dest: /etc/nginx/conf.d/{{ client }}.conf
