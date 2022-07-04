@@ -1,5 +1,5 @@
 ---
 # defaults file for website
 #Créer les variables ici
-defaultRootPath: /usr/share/nginx/html/www
+defaultRootPath: /usr/share/nginx/html/www/{{ site_id }}
 site_path: "/data/{{ client }}/www/{{ site_id }}"
