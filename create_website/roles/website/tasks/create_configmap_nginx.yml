@@ -27,9 +27,6 @@
               # Set nginx to serve files from the shared volume!
               root /usr/share/nginx/html/{{ client }}/www;
               server_name _;
-              location / {
-                try_files $uri $uri/ =404;
-              }
               location ~ \.php$ {
                 include fastcgi_params;
                 fastcgi_param REQUEST_METHOD $request_method;
