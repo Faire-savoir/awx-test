@@ -73,7 +73,7 @@
 #      path: /tmp/{{ client }}/
 #      state: absent
   - name: Generate file for site.
-    include_role:
+    import_role:
       name: website
       tasks_from: copy_site
 #    template:
