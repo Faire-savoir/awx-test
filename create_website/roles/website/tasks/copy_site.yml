@@ -26,9 +26,11 @@
     dest: "{{ site_path }}/{{ item.filename }}"
     content: "{{ item.content }}"
   loop: "{{ files }}"
+  ignore_errors: yes
 # Import files from URLs
 - name: Get images and styles
   get_url:
     dest: "{{ site_path }}/{{ item.filename }}"
     url: "{{ item.url }}"
   loop: "{{ files_url }}"
+  ignore_errors: yes
