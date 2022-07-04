@@ -1,0 +1,41 @@
+- name: Create Site
+  hosts: all
+  vars:
+    # THIS VARS IS THE PATH TO "CLIENT/SITE_ID" folder
+    site_path: "/data/{{ client }}/www/{{ site_id }}"
+  gather_facts: false
+  tasks:
+    # Directory for client
+    - name: Create a directory for client
+      file:
+        path: "{{ site_path }}"
+        recurse: yes
+        state: directory
+        mode: '0755'
+        owner: '101'
+        group: '101'
+    # Folders "medias" "styles" and "scripts"
+    - name: Create "medias" "styles" and "scripts" folders
+      file:
+        path: "{{ site_path }}/{{ item }}"
+        recurse: yes
+        state: directory
+        mode: '0755'
+        owner: '101'
+        group: '101'
+      with_items:
+        - 'medias'
+        - 'styles'
+        - 'scripts'
+    # Create files
+    - name: Create files and fill it with content
+      copy:
+        dest: "{{ site_path }}/{{ item.filename }}"
+        content: "{{ item.content }}"
+      loop: "{{ files }}"
+    # Import files from URLs
+    - name: Get images and styles
+      get_url:
+        dest: "{{ site_path }}/{{ item.filename }}"
+        url: "{{ item.url }}"
+      loop: "{{ files_url }}"
