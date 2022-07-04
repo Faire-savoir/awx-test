@@ -26,4 +26,3 @@
                   name: "{{ client }}-service"
                   port:
                     number: 80
-

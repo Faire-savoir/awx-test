@@ -18,4 +18,3 @@
           protocol: TCP
         selector:
           app: "{{ client }}"
-
