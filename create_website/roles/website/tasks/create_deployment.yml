@@ -14,7 +14,7 @@
         selector:
           matchLabels:
             app: "{{ client }}"
-        replicas: 1
+        replicas: 3
         template:
           metadata:
             namespace: "{{ client }}-system"

@@ -3,9 +3,9 @@
   hosts: all
   gather_facts: false
   become: yes
-  vars:
-    - server_nfs: frhbnas10.fsavoir.lille
-    - share_nfs: /volume2/GSW
+  #vars:
+  #  - server_nfs: fr-hb-gsw-c.fsavoir.lille
+  #  - share_nfs: /data
 
   collections:
     - kubernetes.core
