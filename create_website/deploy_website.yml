@@ -30,8 +30,8 @@
       recurse: yes
       state: directory
       mode: '0777'
-      owner: '101'
-      group: '101'
+    #  owner: '101'
+    #  group: '101'
     delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:
@@ -76,5 +76,6 @@
     template:
       src: "templates/template_website.php.j2"
       dest: "/data/{{ client }}/www/index.php"
+      mode: "0777"
     delegate_to: "{{ server_nfs }}"
 
