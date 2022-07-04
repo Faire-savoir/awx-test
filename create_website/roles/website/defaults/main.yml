@@ -1,6 +1,4 @@
 ---
 # defaults file for website
 #Créer les variables ici
-defaultRootPath: /usr/share/nginx/html/{{ client }}/www
-server_nfs: fr-hb-gsw-c.fsavoir.lille
-share_nfs: /data
+defaultRootPath: /usr/share/nginx/html/www
