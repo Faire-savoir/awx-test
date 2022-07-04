@@ -12,9 +12,9 @@
           storage: 10Mi
         accessModes:
           - ReadWriteMany
-         nfs:
-           server: "{{ server_nfs }}"
-           path: "{{ share_nfs }}"
+        nfs:
+          server: "{{ server_nfs }}"
+          path: "{{ share_nfs }}"
         #hostPath:
         #  path: /web-files
 
