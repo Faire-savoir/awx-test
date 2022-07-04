@@ -5,7 +5,7 @@
   become: yes
   vars:
     - server_nfs: fr-hb-gsw-c.fsavoir.lille
-    - share_nfs: /data
+    - share_nfs: /data/{{ client }}
 
   collections:
     - kubernetes.core
@@ -29,9 +29,9 @@
       path: /data/{{ client }}/www
       recurse: yes
       state: directory
-      mode: '0777'
-    #  owner: '101'
-    #  group: '101'
+      mode: '0755'
+      owner: '101'
+      group: '101'
     delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:
@@ -76,6 +76,8 @@
     template:
       src: "templates/template_website.php.j2"
       dest: "/data/{{ client }}/www/index.php"
-      mode: "0777"
+      mode: "0755"
+      owner: "101"
+      group: "101"
     delegate_to: "{{ server_nfs }}"
 
