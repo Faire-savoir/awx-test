@@ -29,7 +29,7 @@
               server_name _;
               
               location / {
-                try_files $uri /accueil.php$is_args$args;
+                try_files $uri $uri.php$is_args$args;
               }
               location ~ \.css {
                 add_header  Content-Type    text/css;
