@@ -14,7 +14,8 @@
           cert-manager.io/cluster-issuer: "letsencrypt-staging"
       spec:
         tls:
-        - hosts: "{{ client }}.gsw.faire-savoir.eu"
+        - hosts: 
+          - "{{ client }}.gsw.faire-savoir.eu"
           secretName: "{{ client }}-tls-credential"
         rules:
         - host: "{{ client }}.gsw.faire-savoir.eu"
