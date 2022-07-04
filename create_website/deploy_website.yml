@@ -26,13 +26,13 @@
 #    shell: /tmp/{{ client }}/generate_certificat.sh
   - name: Create a directory www if it does not exist
     file:
-      path: /web-files/{{ client }}/www
+      path: /data/{{ client }}/www
       recurse: yes
       state: directory
       mode: '0755'
     #  owner: '101'
     #  group: '101'
-    delegate_to: "{{ inventory_hostname }}"
+    delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:
       path: /etc/exports
