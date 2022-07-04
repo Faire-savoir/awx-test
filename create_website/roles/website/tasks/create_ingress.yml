@@ -15,10 +15,10 @@
       spec:
         tls:
         - hosts: 
-          - "{{ client }}.gsw.faire-savoir.eu"
-          secretName: "{{ client }}-tls-credential"
+          - "{{ ndd }}"
+          secretName: "{{ ndd }}-tls-credential"
         rules:
-        - host: "{{ client }}.gsw.faire-savoir.eu"
+        - host: "{{ ndd }}"
           http:
             paths:
             - pathType: Prefix #Exact
