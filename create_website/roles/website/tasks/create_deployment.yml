@@ -45,7 +45,7 @@
               #   mountPath: /etc/nginx/nginx.conf
               #   subPath: nginx.conf
               - name: www-storage
-                mountPath: /data/files
+                mountPath: /usr/share/nginx/html/
               readinessProbe:
                 tcpSocket:
                   port: http
