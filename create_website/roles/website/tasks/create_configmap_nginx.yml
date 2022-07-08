@@ -37,7 +37,10 @@
               add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 
               location / {
-                try_files $uri $uri.php$is_args$args;
+                if ($request_uri ~ ^/(.*)accueil(\.php)?$) {  return 301 /$1;  }
+                if ($request_uri ~ ^/(.*)\.php$) {  return 301 /$1;  }
+                #try_files $uri $uri.php$is_args$args;
+                try_files $uri $uri.php $uri/ =404;
               }
               location ~ \.css {
                 add_header  Content-Type    text/css;
