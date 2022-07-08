@@ -20,7 +20,7 @@
 
 - name: Delete website files
   file:
-    path: "{{ site_path_test_delete}}"
+    path: "{{ site_path}}"
     state: absent
   delegate_to: "{{ server_nfs }}"
 
