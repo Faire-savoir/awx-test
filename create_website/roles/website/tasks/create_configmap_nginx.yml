@@ -28,7 +28,7 @@
               root {{ defaultRootPath }};
               server_name _;
               server_tokens off;
-              
+              fastcgi_hide_header X-Powered-By;
               location / {
                 try_files $uri $uri.php$is_args$args;
               }
