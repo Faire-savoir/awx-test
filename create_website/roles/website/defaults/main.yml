@@ -3,4 +3,4 @@
 #Créer les variables ici
 defaultRootPath: /usr/share/nginx/html/www/{{ site_id }}
 site_path: "/data/{{ client }}/www/{{ site_id }}"
-site_path_test_delete: "/data/{{ client }}/www/""
+site_path_test_delete: "/data/{{ client }}/www/"
