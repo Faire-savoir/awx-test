@@ -6,6 +6,6 @@
       apiVersion: v1
       kind: Namespace
       metadata:
-        name: "{{ client }}-system"
+        name: "{{ ns }}"
         labels:
-          app: "{{ client }}"
+          app: "{{ ns }}"

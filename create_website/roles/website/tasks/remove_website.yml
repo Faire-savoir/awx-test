@@ -6,7 +6,7 @@
       apiVersion: v1
       kind: Namespace
       metadata:
-        name: "{{ client }}-system"
+        name: "{{ ns }}"
 
 - name: Delete a k8s volume
   k8s:
@@ -16,4 +16,4 @@
       apiVersion: v1
       kind: PersistentVolume
       metadata:
-        name: "{{ client }}-nfs"
+        name: "{{ ns }}-nfs"

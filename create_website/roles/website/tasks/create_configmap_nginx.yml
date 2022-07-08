@@ -6,8 +6,8 @@
       kind: ConfigMap
       apiVersion: v1
       metadata:
-        name: "{{ client }}-nginx-config"
-        namespace: "{{ client }}-system"
+        name: "{{ ns}}-nginx-config"
+        namespace: "{{ ns }}"
       data:
         nginx.conf: |
           user  nginx;

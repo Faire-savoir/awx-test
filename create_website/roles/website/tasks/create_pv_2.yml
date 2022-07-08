@@ -6,8 +6,8 @@
       apiVersion: v1
       kind: PersistentVolumeClaim
       metadata:
-        name: "{{ client }}-nfs-pvc"
-        namespace: "{{ client }}-system"
+        name: "{{ ns }}-nfs-pvc"
+        namespace: "{{ ns }}-system"
       spec:
         storageClassName: ""
         accessModes:

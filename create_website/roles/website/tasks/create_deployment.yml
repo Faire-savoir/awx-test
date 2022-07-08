@@ -6,20 +6,20 @@
       apiVersion: apps/v1
       kind: Deployment
       metadata:
-        namespace: "{{ client }}-system"
-        name: "{{ client }}"
+        namespace: "{{ ns }}"
+        name: "{{ ns }}"
         labels:
-          app: "{{ client }}"
+          app: "{{ ns }}"
       spec:
         selector:
           matchLabels:
-            app: "{{ client }}"
+            app: "{{ ns }}"
         replicas: 3
         template:
           metadata:
-            namespace: "{{ client }}-system"
+            namespace: "{{ ns }}"
             labels:
-              app: "{{ client }}"
+              app: "{{ ns }}"
             annotations:
               sidecar.istio.io/inject: "false"
           spec:
@@ -31,10 +31,10 @@
                     - key: app
                       operator: In
                       values:
-                      - "{{ client }}"
+                      - "{{ ns }}"
                   topologyKey: "kubernetes.io/hostname"
             containers:
-            - name: "{{ client }}-php"
+            - name: "{{ ns }}-php"
               image: php:8-fpm
               ports:
               - containerPort: 9000
@@ -51,7 +51,7 @@
                   port: http
                 initialDelaySeconds: 10
                 timeoutSeconds: 5
-            - name: "{{ client }}-nginx"
+            - name: "{{ ns }}-nginx"
               image: nginx
               ports:
               - containerPort: 80
@@ -70,8 +70,8 @@
             #    name: "{{ client }}-html"
             - name: www-storage
               persistentVolumeClaim:
-                claimName: "{{ client }}-nfs-pvc"
+                claimName: "{{ ns }}-nfs-pvc"
             - name: nginx-config-volume
               configMap:
-                name: "{{ client }}-nginx-config"
+                name: "{{ ns }}-nginx-config"
             restartPolicy: Always
