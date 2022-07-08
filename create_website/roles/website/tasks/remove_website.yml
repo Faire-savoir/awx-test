@@ -6,7 +6,7 @@
       apiVersion: v1
       kind: Namespace
       metadata:
-        name: "{{ client }}"
+        name: "{{ client }}"-system
 
 - name: Delete a k8s volume
   k8s:
