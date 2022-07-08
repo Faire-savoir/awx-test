@@ -7,7 +7,7 @@
       kind: PersistentVolumeClaim
       metadata:
         name: "{{ ns }}-nfs-pvc"
-        namespace: "{{ ns }}-system"
+        namespace: "{{ ns }}"
       spec:
         storageClassName: ""
         accessModes:
