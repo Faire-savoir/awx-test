@@ -70,7 +70,12 @@
 
               keepalive_timeout  65;
 
-              #gzip  on;
+              gzip  on;
+              gzip_comp_level 6;
+              gzip_proxied any;
+              gzip_vary on;
+              gzip_types  text/plain text/css application/x-javascript;
+              gzip_disable "MSIE [1-6]\.(?!.*SV1)";
 
               include /etc/nginx/conf.d/*.conf;
           }
