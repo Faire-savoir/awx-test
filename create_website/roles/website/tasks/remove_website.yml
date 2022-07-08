@@ -23,3 +23,11 @@
     path: "{{ site_path_test_delete}}"
     state: absent
   delegate_to: "{{ server_nfs }}"
+
+- name: Update exportfs
+  ansible.builtin.lineinfile:
+    path: /etc/exportfs
+    search_string: "/data/{{ client }}"
+    state: absent
+  command: exportfs -a
+  delegate_to: "{{ server_nfs }}"
