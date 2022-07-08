@@ -29,7 +29,7 @@
               root {{ defaultRootPath }};
               server_name _;
               
-              #Set secure param
+              #Set secure parameters
               server_tokens off;
               add_header X-Frame-Options "SAMEORIGIN" always;
               add_header X-Content-Type-Options nosniff;
