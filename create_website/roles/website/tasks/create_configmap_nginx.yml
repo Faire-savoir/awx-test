@@ -27,6 +27,7 @@
               # Set nginx to serve files from the shared volume!
               root {{ defaultRootPath }};
               server_name _;
+              server_tokens off;
               
               location / {
                 try_files $uri $uri.php$is_args$args;
