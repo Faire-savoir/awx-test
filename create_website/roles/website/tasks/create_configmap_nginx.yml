@@ -24,11 +24,19 @@
             server {
               listen 80 default_server;
               listen [::]:80 default_server;
+              
               # Set nginx to serve files from the shared volume!
               root {{ defaultRootPath }};
               server_name _;
+              
+              #Set secure param
               server_tokens off;
               fastcgi_hide_header X-Powered-By;
+              add_header X-Frame-Options "SAMEORIGIN";
+              add_header X-Content-Type-Options nosniff;
+              add_header X-XSS-Protection "1; mode=block";
+              add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
+
               location / {
                 try_files $uri $uri.php$is_args$args;
               }
