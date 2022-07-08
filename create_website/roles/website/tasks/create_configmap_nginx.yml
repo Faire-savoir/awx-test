@@ -6,7 +6,7 @@
       kind: ConfigMap
       apiVersion: v1
       metadata:
-        name: "{{ ns}}-nginx-config"
+        name: "{{ ns }}-nginx-config"
         namespace: "{{ ns }}"
       data:
         nginx.conf: |

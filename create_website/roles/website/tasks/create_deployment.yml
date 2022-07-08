@@ -7,7 +7,7 @@
       kind: Deployment
       metadata:
         namespace: "{{ ns }}"
-        name: "{{ ns }}"
+        name: "{{ ns }}-name"
         labels:
           app: "{{ ns }}"
       spec:
