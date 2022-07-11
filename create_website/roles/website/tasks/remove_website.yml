@@ -32,5 +32,5 @@
   delegate_to: "{{ server_nfs }}"
 
 - name: Update exportfs commande
-  command: exportfs -a
+  shell: exportfs -a
   delegate_to: "{{ server_nfs }}"
