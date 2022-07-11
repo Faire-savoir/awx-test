@@ -27,7 +27,7 @@
 - name: Update exportfs
   ansible.builtin.lineinfile:
     path: /etc/exports
-    search_string: "/data/{{ client }}"
+    search_string: "/data/{{ client }}www/{{ site_id }}"
     state: absent
   delegate_to: "{{ server_nfs }}"
 
