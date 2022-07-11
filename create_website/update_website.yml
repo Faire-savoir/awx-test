@@ -1,0 +1,13 @@
+---
+- name: deploy application
+  hosts: all
+  gather_facts: false
+  become: yes
+
+  collections:
+    - kubernetes.core
+  tasks:
+  - name: Update all website
+    include_role:
+      name: update-website
+      tasks_from: copy_site

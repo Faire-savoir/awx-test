@@ -32,5 +32,6 @@
   get_url:
     dest: "{{ site_path }}/{{ item.filename }}"
     url: "{{ item.url }}"
+    force: yes
   loop: "{{ files_url }}"
   ignore_errors: yes
