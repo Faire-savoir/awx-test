@@ -36,7 +36,7 @@
   - name: Add directory to exports file
     lineinfile:
       path: /etc/exports
-      line: "/data/{{ client }}/www/{{ site_id }}          *(rw)"
+      line: "/data/{{ client }}          *(rw)"
       create: yes
     delegate_to: "{{ server_nfs }}"
   - name: NFS apply change configrue
