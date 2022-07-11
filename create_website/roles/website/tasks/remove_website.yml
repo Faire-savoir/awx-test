@@ -27,10 +27,10 @@
 - name: Update exportfs
   ansible.builtin.lineinfile:
     path: /etc/exports
-    search_string: "/data/{{ client }}www/{{ site_id }}"
+    search_string: "/data/{{ client }}"
     state: absent
   delegate_to: "{{ server_nfs }}"
 
 - name: Update exportfs commande
-  shell: exportfs -a
+  command: exportfs -a
   delegate_to: "{{ server_nfs }}"
