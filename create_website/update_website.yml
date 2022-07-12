@@ -13,7 +13,7 @@
 
   tasks:
   - name: update all site
-    include_role:
+    import_role:
       name: website
       tasks_from: copy_site
     delegate_to: "{{ server_nfs }}"
