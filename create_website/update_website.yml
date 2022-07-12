@@ -11,4 +11,4 @@
   - include_role:
       name: update-website
       tasks_from: copy_site
-  name: update all site
+    name: update all site
