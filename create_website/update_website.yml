@@ -9,5 +9,6 @@
   
   tasks:
   - include_role:
-    name: update-website
-    tasks_from: copy_site
+      name: update-website
+      tasks_from: copy_site
+  name: update all site
