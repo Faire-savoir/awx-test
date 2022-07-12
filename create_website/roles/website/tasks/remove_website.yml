@@ -24,13 +24,13 @@
     state: absent
   delegate_to: "{{ server_nfs }}"
 
-- name: Update exportfs
-  ansible.builtin.lineinfile:
-    path: /etc/exports
-    search_string: "/data/{{ client }}"
-    state: absent
-  delegate_to: "{{ server_nfs }}"
+#- name: Update exportfs
+#  ansible.builtin.lineinfile:
+#    path: /etc/exports
+#    search_string: "/data/{{ client }}"
+#    state: absent
+#  delegate_to: "{{ server_nfs }}"
 
-- name: Update exportfs commande
-  command: exportfs -a
-  delegate_to: "{{ server_nfs }}"
+#- name: Update exportfs commande
+#  command: exportfs -a
+#  delegate_to: "{{ server_nfs }}"
