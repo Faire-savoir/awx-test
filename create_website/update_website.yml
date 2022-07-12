@@ -8,7 +8,8 @@
     - kubernetes.core
   
   tasks:
-  - include_role:
-      name: update-website
+  - name: update all site
+    include_role:
+      name: website
       tasks_from: copy_site
-    name: update all site
+    
