@@ -28,6 +28,7 @@
               # Set nginx to serve files from the shared volume!
               root {{ defaultRootPath }};
               server_name _;
+              index accueil.php;
               
               #Set secure parameters
               server_tokens off;
