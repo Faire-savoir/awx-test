@@ -7,9 +7,13 @@
   collections:
     - kubernetes.core
   
+  vars:
+    - server_nfs: fr-hb-gsw-c.fsavoir.lille
+    - share_nfs: /data/{{ client }}
+
   tasks:
   - name: update all site
     include_role:
       name: website
       tasks_from: copy_site
-    
+    delegate_to: "{{ server_nfs }}"
