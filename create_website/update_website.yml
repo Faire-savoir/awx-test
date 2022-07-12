@@ -6,6 +6,7 @@
 
   collections:
     - kubernetes.core
+  
   tasks:
   - name: Update all website
     include_role:
