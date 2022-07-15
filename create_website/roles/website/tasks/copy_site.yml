@@ -26,8 +26,6 @@
     dest: "{{ site_path }}/{{ item.filename }}"
     content: "{{ item.content }}"
   loop: "{{ files }}"
-  async: 60
-  poll: 0
   ignore_errors: yes
 # Import files from URLs
 - name: Get images and styles
@@ -36,6 +34,4 @@
     url: "{{ item.url }}"
     force: yes
   loop: "{{ files_url }}"
-  async: 60
-  poll: 0
   ignore_errors: yes
