@@ -29,6 +29,7 @@
   ignore_errors: yes
   async: 1000
   poll: 0
+  mode: cleanup
 # Import files from URLs
 - name: Get images and styles
   get_url:
@@ -39,3 +40,4 @@
   ignore_errors: yes
   async: 1000
   poll: 0
+  mode: cleanup
