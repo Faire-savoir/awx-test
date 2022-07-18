@@ -36,5 +36,5 @@
     force: yes
   loop: "{{ files_url }}"
   ignore_errors: yes
-  async: 300
-  poll: 0
+  #async: 300
+  #poll: 0
