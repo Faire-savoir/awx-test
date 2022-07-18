@@ -31,7 +31,7 @@
       state: directory
       mode: '0775'
       owner: '101'
-      group: '101'
+      group: '0'
     delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:

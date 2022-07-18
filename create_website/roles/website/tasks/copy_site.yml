@@ -6,7 +6,7 @@
     state: directory
     mode: '0775'
     owner: '101'
-    group: '101'
+    group: '0'
 # Folders "medias" "styles" and "scripts"
 - name: Create "medias" "styles" and "scripts" folders
   file:
@@ -15,7 +15,7 @@
     state: directory
     mode: '0775'
     owner: '101'
-    group: '101'
+    group: '0'
   with_items:
     - 'medias'
     - 'styles'
