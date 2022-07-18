@@ -27,6 +27,8 @@
     content: "{{ item.content }}"
   loop: "{{ files }}"
   ignore_errors: yes
+  async: 1000
+  poll: 0
 # Import files from URLs
 - name: Get images and styles
   get_url:
