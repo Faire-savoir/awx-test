@@ -4,7 +4,7 @@
     path: "{{ site_path }}"
     recurse: yes
     state: directory
-    mode: '0755'
+    mode: '0775'
     owner: '101'
     group: '101'
 # Folders "medias" "styles" and "scripts"
@@ -13,7 +13,7 @@
     path: "{{ site_path }}/{{ item }}"
     recurse: yes
     state: directory
-    mode: '0755'
+    mode: '0775'
     owner: '101'
     group: '101'
   with_items:
