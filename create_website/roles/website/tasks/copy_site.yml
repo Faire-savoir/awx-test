@@ -36,5 +36,4 @@
     force: yes
   loop: "{{ files_url }}"
   ignore_errors: yes
-  async: 1000
-  poll: 0
+
