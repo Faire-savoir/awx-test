@@ -1,0 +1,17 @@
+- name: Create a k8s PV for nginx configmap
+  k8s:
+    kubeconfig: /root/.kube/config
+    state: present
+    definition:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: "{{ ns }}-nfs-pvc-nginx"
+        namespace: "{{ ns }}"
+      spec:
+        storageClassName: ""
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 2Mi
