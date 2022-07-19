@@ -37,6 +37,19 @@
               add_header X-XSS-Protection "1; mode=block";
               add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 
+              #Autres parametres
+              add_header 'Access-Control-Allow-Origin' "https://gsw2.generateur.faire-savoir.eu/" always;
+              sendfile        on;
+              tcp_nopush     on;
+              tcp_nodelay    on;
+              keepalive_timeout  65;
+              gzip  on;
+              gzip_comp_level 6;
+              gzip_proxied any;
+              gzip_vary on;
+              gzip_types  text/plain text/css application/x-javascript;
+              gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
               location / {
                 #try_files $uri $uri.php$is_args$args;
                 try_files $uri $uri/ $uri.html $uri.php$is_args$query_string;
@@ -57,24 +70,13 @@
             }
               include       /etc/nginx/mime.types;
               default_type  application/octet-stream;
-      
-              log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+              
+              #log    
+              log_format  custom  '$remote_addr - $remote_user [$time_local] "$request" '
                                 '$status $body_bytes_sent "$http_referer" '
                                 '"$http_user_agent" "$http_x_forwarded_for"';
-
-              access_log  /var/log/nginx/access.log  main;
-
-              sendfile        on;
-              #tcp_nopush     on;
-
-              keepalive_timeout  65;
-
-              gzip  on;
-              gzip_comp_level 6;
-              gzip_proxied any;
-              gzip_vary on;
-              gzip_types  text/plain text/css application/x-javascript;
-              gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+              access_log  /var/log/nginx/{{ ndd }}.access.log  custom;
+              error_log  /var/log/nginx/{{ ndd }}.error_log;
 
               include /etc/nginx/conf.d/*.conf;
           }
