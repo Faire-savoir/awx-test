@@ -18,6 +18,7 @@
     group: '0'
   with_items:
     - 'medias'
+    - 'medias/flag'
     - 'styles'
     - 'scripts'
 # Create files
