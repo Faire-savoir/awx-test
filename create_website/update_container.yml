@@ -12,6 +12,7 @@
     ansible.builtin.command: kubectl delete --all pods -n {{ item }}
     loop: "{{ ns_list }}"
     ignore_errors: yes
+    ignore_unreachable: yes
 
 #- name: Delete the POD
 #  k8s:
