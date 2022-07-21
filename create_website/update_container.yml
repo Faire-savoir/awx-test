@@ -1,6 +1,7 @@
 ---
 - name: Update container
   hosts: all
+  ignore_unreachable: yes
   gather_facts: false
   become: yes
 
