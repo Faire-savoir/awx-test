@@ -7,9 +7,9 @@
   collections:
     - kubernetes.core
   
-tasks:
-- name: Delete All pod from namespace
-  ansible.builtin.command: kubectl delete --all pods -n {{ ns }}
+  tasks:
+  - name: Delete All pod from namespace
+    ansible.builtin.command: kubectl delete --all pods -n {{ ns }}
 
 #- name: Delete the POD
 #  k8s:
