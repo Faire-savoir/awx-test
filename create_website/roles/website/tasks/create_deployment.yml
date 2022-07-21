@@ -35,7 +35,7 @@
                   topologyKey: "kubernetes.io/hostname"
             containers:
             - name: "{{ ns }}-php"
-              image: php:8-fpm
+              image: php:8.0-fpm
               ports:
               - containerPort: 9000
                 name: http
