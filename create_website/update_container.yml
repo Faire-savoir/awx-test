@@ -1,0 +1,19 @@
+---
+- name: Update container
+  hosts: all
+  gather_facts: false
+  become: yes
+
+  collections:
+    - kubernetes.core
+  
+  - name: Delete All pod from namespace
+  ansible.builtin.command: kubectl delete --all pods -n {{ ns }}
+
+#- name: Delete the POD
+#  k8s:
+#    api_version: v1
+#    kind: Pod
+#    namespace: "{{ k8s_namespace }}"
+#    name: "{{ pod_name }}"
+#    state: absent
