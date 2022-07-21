@@ -11,6 +11,7 @@
   - name: Delete All pod from namespace
     ansible.builtin.command: kubectl delete --all pods -n {{ item }}
     loop: "{{ ns_list }}"
+    ignore_errors: yes
 
 #- name: Delete the POD
 #  k8s:
