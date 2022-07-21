@@ -14,7 +14,7 @@
         selector:
           matchLabels:
             app: "{{ ns }}"
-        replicas: 3
+        replicas: 2
         template:
           metadata:
             namespace: "{{ ns }}"
