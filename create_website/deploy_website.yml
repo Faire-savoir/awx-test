@@ -72,15 +72,15 @@
 #    file:
 #      path: /tmp/{{ client }}/
 #      state: absent
-  - name: Generate file for site.
-    import_role:
-      name: website
-      tasks_from: copy_site
-#    template:
-#      src: "templates/template_website.php.j2"
-#      dest: "/data/{{ client }}/www/index.php"
-#      mode: "0755"
-#      owner: "101"
-#      group: "101"
-    delegate_to: "{{ server_nfs }}"
+#   - name: Generate file for site.
+#     import_role:
+#       name: website
+#       tasks_from: copy_site
+# #    template:
+# #      src: "templates/template_website.php.j2"
+# #      dest: "/data/{{ client }}/www/index.php"
+# #      mode: "0755"
+# #      owner: "101"
+# #      group: "101"
+#     delegate_to: "{{ server_nfs }}"
 
