@@ -6,6 +6,7 @@
   vars:
     - server_nfs: fr-hb-gsw-c.fsavoir.lille
     - share_nfs: /data/{{ client }}
+    - site_path_nginx: "/data/{{ client }}/nginx/{{ site_id }}/nginx.conf"
 
   collections:
     - kubernetes.core
@@ -32,6 +33,15 @@
       mode: '0775'
       owner: '101'
       group: '0'
+    delegate_to: "{{ server_nfs }}"
+  - name: Create a directory nignx if it does not exist
+    file:
+      path: /data/{{ client }}/nginx
+      recurse: yes
+      state: directory
+      mode: '0755'
+      owner: '101'
+      group: '101'
     delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:
@@ -76,11 +86,11 @@
     import_role:
       name: website
       tasks_from: copy_site
-#    template:
-#      src: "templates/template_website.php.j2"
-#      dest: "/data/{{ client }}/www/index.php"
-#      mode: "0755"
-#      owner: "101"
-#      group: "101"
+    template:
+      src: "templates/template_vhost.php.j2"
+      dest: "{{ site_path_nginx }} 
+      mode: "0755"
+      owner: "101"
+      group: "101"
     delegate_to: "{{ server_nfs }}"
 

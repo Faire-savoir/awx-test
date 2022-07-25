@@ -65,15 +65,12 @@
               - mountPath: "/usr/share/nginx/html/"
                 name: www-storage
             volumes:
-            #- name: html-volume
-            #  configMap:
-            #    name: "{{ client }}-html"
             - name: www-storage
               persistentVolumeClaim:
                 claimName: "{{ ns }}-nfs-pvc"
             - name: nginx-config-volume
-              #persistentVolumeClaim:
-              #  claimName: "{{ ns }}-nfs-pvc-nginx"
-              configMap:
-                name: "{{ ns }}-nginx-config"
+              persistentVolumeClaim:
+                claimName: "{{ ns }}-nfs-pvc-nginx"
+              #configMap:
+              #  name: "{{ ns }}-nginx-config"
             restartPolicy: Always
