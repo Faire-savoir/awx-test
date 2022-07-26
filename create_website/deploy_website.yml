@@ -36,7 +36,7 @@
     delegate_to: "{{ server_nfs }}"
   - name: Create a directory nignx if it does not exist
     file:
-      path: /data/{{ client }}/nginx
+      path: /data/{{ client }}/nginx/{{ site_id }}
       recurse: yes
       state: directory
       mode: '0755'
@@ -87,7 +87,7 @@
 #       name: website
 #       tasks_from: copy_site
     template:
-      src: "templates/template_website.php.j2"
+      src: "templates/template_vhost.php.j2"
       dest: "{{ site_path_nginx }}"
       mode: "0755"
       owner: "101"
