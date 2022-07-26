@@ -65,7 +65,7 @@
       tasks_from: "{{ item }}"
     with_items:
       - 'create_ns.yml'
-      - 'create_configmap_nginx.yml'
+      #- 'create_configmap_nginx.yml'
       - 'create_pv_1.yml'
       - 'create_pv_2.yml'
   #- name: Define TLS
@@ -78,17 +78,17 @@
       - 'create_service.yml'
       - 'create_ingress.yml'
       - 'create_deployment.yml'
-#  - name: Delete temp directory
+  - name: Delete temp directory
 #    file:
 #      path: /tmp/{{ client }}/
 #      state: absent
-  - name: Generate file for site.
-    import_role:
-      name: website
-      tasks_from: copy_site
+#   - name: Generate file for site.
+#     import_role:
+#       name: website
+#       tasks_from: copy_site
     template:
-      src: "templates/template_vhost.php.j2"
-      dest: "{{ site_path_nginx }} 
+      src: "templates/template_website.php.j2"
+      dest: "{{ site_path_nginx }}"
       mode: "0755"
       owner: "101"
       group: "101"
