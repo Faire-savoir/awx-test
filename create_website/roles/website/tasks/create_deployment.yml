@@ -69,8 +69,8 @@
               persistentVolumeClaim:
                 claimName: "{{ ns }}-nfs-pvc"
             - name: nginx-config-volume
-              persistentVolumeClaim:
-                claimName: "{{ ns }}-nfs-pvc-nginx"
-              #configMap:
-              #  name: "{{ ns }}-nginx-config"
+              #persistentVolumeClaim:
+              #  claimName: "{{ ns }}-nfs-pvc-nginx"
+              configMap:
+                name: "{{ ns }}-nginx-config"
             restartPolicy: Always

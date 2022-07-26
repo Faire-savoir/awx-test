@@ -6,8 +6,8 @@
   vars:
     - server_nfs: fr-hb-gsw-c.fsavoir.lille
     - share_nfs: /data/{{ client }}
-    - site_path_nginx: "/data/{{ client }}/nginx/{{ site_id }}/nginx.conf"
-    - defaultRootPath: /usr/share/nginx/html/www/{{ site_id }}
+  #  - site_path_nginx: "/data/{{ client }}/nginx/{{ site_id }}/nginx.conf"
+  #  - defaultRootPath: /usr/share/nginx/html/www/{{ site_id }}
 
   collections:
     - kubernetes.core
@@ -35,15 +35,15 @@
       owner: '101'
       group: '0'
     delegate_to: "{{ server_nfs }}"
-  - name: Create a directory nignx if it does not exist
-    file:
-      path: /data/{{ client }}/nginx/{{ site_id }}
-      recurse: yes
-      state: directory
-      mode: '0755'
-      owner: '101'
-      group: '101'
-    delegate_to: "{{ server_nfs }}"
+  #- name: Create a directory nignx if it does not exist
+  #  file:
+  #    path: /data/{{ client }}/nginx/{{ site_id }}
+  #    recurse: yes
+  #    state: directory
+  #    mode: '0755'
+  #    owner: '101'
+  #    group: '101'
+  #  delegate_to: "{{ server_nfs }}"
   - name: Add directory to exports file
     lineinfile:
       path: /etc/exports
@@ -66,7 +66,7 @@
       tasks_from: "{{ item }}"
     with_items:
       - 'create_ns.yml'
-      #- 'create_configmap_nginx.yml'
+      - 'create_configmap_nginx.yml'
       - 'create_pv_1.yml'
       - 'create_pv_2.yml'
   #- name: Define TLS
@@ -79,7 +79,7 @@
       - 'create_service.yml'
       - 'create_ingress.yml'
       - 'create_deployment.yml'
-  - name: Delete temp directory
+#  - name: Delete temp directory
 #    file:
 #      path: /tmp/{{ client }}/
 #      state: absent
@@ -87,11 +87,11 @@
 #     import_role:
 #       name: website
 #       tasks_from: copy_site
-    template:
-      src: "templates/template_vhost.conf.j2"
-      dest: "{{ site_path_nginx }}"
-      mode: "0755"
-      owner: "101"
-      group: "101"
-    delegate_to: "{{ server_nfs }}"
+#    template:
+#      src: "templates/template_vhost.conf.j2"
+#      dest: "{{ site_path_nginx }}"
+#      mode: "0755"
+#      owner: "101"
+#      group: "101"
+#    delegate_to: "{{ server_nfs }}"
 
