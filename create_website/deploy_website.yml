@@ -7,6 +7,7 @@
     - server_nfs: fr-hb-gsw-c.fsavoir.lille
     - share_nfs: /data/{{ client }}
     - site_path_nginx: "/data/{{ client }}/nginx/{{ site_id }}/nginx.conf"
+    - defaultRootPath: /usr/share/nginx/html/www/{{ site_id }}
 
   collections:
     - kubernetes.core
