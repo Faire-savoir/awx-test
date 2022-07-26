@@ -87,7 +87,7 @@
 #       name: website
 #       tasks_from: copy_site
     template:
-      src: "templates/template_vhost.php.j2"
+      src: "templates/template_vhost.conf.j2"
       dest: "{{ site_path_nginx }}"
       mode: "0755"
       owner: "101"
